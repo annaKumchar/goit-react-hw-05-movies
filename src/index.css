@@ -7,6 +7,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto";
+  background-color: rgb(233, 231, 231);
+  background-size: cover;
 }
 
 code {

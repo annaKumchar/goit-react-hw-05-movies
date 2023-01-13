@@ -1,27 +1,31 @@
 import React, { Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
-import { TrendMovieList, TrendMovieItem, InfoLink } from './MovieList.styled';
+import {
+  MovieListEl,
+  MoviesTitle,
+  MovieItem,
+  InfoLink,
+  MovieImg,
+} from './MovieList.styled';
 
-export const TrendingMovieList = ({ movieList }) => {
+export const MovieList = ({ movieList }) => {
   const location = useLocation();
 
   return (
     <>
-      <TrendMovieList>
+      <MovieListEl>
         {movieList.map(({ id, poster_path, title }) => (
-          <TrendMovieItem key={id}>
+          <MovieItem key={id}>
             <InfoLink to={`/movies/${id}`} state={{ from: location }}>
-              <img
+              <MovieImg
                 src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                 alt={title}
-                height="250"
-                width=""
               />
-              <p>{title}</p>
+              <MoviesTitle>{title}</MoviesTitle>
             </InfoLink>
-          </TrendMovieItem>
+          </MovieItem>
         ))}
-      </TrendMovieList>
+      </MovieListEl>
       <Suspense fallback={<h1>Loading...</h1>}></Suspense>
     </>
   );
